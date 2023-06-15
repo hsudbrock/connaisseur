@@ -56,6 +56,7 @@ metadata:
   annotations:
     "helm.sh/hook": post-delete
     "helm.sh/hook-delete-policy": before-hook-creation, hook-succeeded, hook-failed
+    argocd.argoproj.io/hook: Skip
 webhooks:
   - name: {{ .Chart.Name }}-svc.{{ .Release.Namespace }}.svc
     failurePolicy: Ignore
@@ -86,6 +87,7 @@ metadata:
     {{- include "helm.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": post-install, post-upgrade, post-rollback
+    argocd.argoproj.io/hook: PostSync
 webhooks:
   - name: {{ .Chart.Name }}-svc.{{ .Release.Namespace }}.svc
     failurePolicy: {{ .Values.deployment.failurePolicy | default "Fail" }}
