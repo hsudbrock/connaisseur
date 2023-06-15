@@ -185,6 +185,8 @@ automaticUnchangedApproval: false
 
 # debug: true
 
+argoCDDeployment: true
+
 
 # The "logLevel" configuration option adds a partial redundancy to the `debug` setting.
 # Removing the `debug` setting is a breaking change though - we are going to remove the `debug` setting in the context of a larger refactoring to avoid multiple breaking releases.
